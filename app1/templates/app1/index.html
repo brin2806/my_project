@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>Local Forecast</title>
+</head>
+<body>
+	<h3>Local Forecast</h3>
+
+	<div>Location: {{ forecast.city.name }} ({{forecast.city.coord.lat}}, {{forecast.city.coord.lon}})</div>
+        <br>
+        <hr>
+
+        {% for item in forecast.list %}
+                <div>Date: {{ item.dt_txt }}</div>
+                <div>Description: {{ item.weather.0.main }}</div>
+                <div>Temperature (K): {{ item.main.temp }}</div>
+                <hr>
+        {% endfor %}
+	
+</body>
+</html>
