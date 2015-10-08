@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-	<title>Local Forecast</title>
+    <title>Weather Forecast</title>
 </head>
 <body>
-	<h3>Local Forecast</h3>
+<h3>Weather Forecast</h3>
 
-	<div>Location: {{ forecast.city.name }} ({{forecast.city.coord.lat}}, {{forecast.city.coord.lon}})</div>
+<form>
+    {{ form }}
+    <input type="submit" value="Find Weather">
+</form>
+
+
+<div>
+
+
+
+
+
+    {% if forecast %}
+
+
+        <div>Weather for: {{ forecast.city.name }} ({{forecast.city.coord.lat}}, {{forecast.city.coord.lon}})
+        </div>
+        
         <br>
         <hr>
 
@@ -16,6 +33,14 @@
                 <div>Temperature (K): {{ item.main.temp }}</div>
                 <hr>
         {% endfor %}
-	
+    {% else %}
+        No weather information found. :(
+
+    {% endif %}        
+</div>
+    
+
+
+    
 </body>
 </html>
